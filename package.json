@@ -1,0 +1,24 @@
+{
+  "name": "mm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf ./dist/ && babel ./src/ --out-dir ./dist/ --copy-files",
+    "app": "npm run build && node ./dist/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "args": "^3.0.8",
+    "axios": "^0.17.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "jsonfile": "^4.0.0",
+    "moment": "^2.20.1",
+    "rimraf": "^2.6.2"
+  }
+}
