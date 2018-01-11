@@ -1,3 +1,4 @@
+import 'source-map-support/register'
 import args from 'args'
 import config from './config'
 import symbolsAll from './symbols'
@@ -8,9 +9,8 @@ import jsonfile from 'jsonfile'
 
 args
   .option('symbol', 'The stock symbol to retrieve')
-  .option('all', 'Retrieve all of the listed symbols', false)
   .option('interval', 'The interval to retrieve (1min, 5min, 15min, 30min, 60min)')
-  .option('full', 'Retrieve all of the available data', false)
+  .option('full', 'Retrieve all of the available data', true)
 
 const flags = args.parse(process.argv)
 
@@ -27,7 +27,7 @@ var retryTimes = 0
 var retryTimesMax = 5
 
 // retrieving individual symbols
-if (!flags.all) {
+if (flags.symbol) {
   let symbol = flags.symbol
   interval = flags.interval || '1min'
   outputsize = flags.full ? 'full' : 'compat'
